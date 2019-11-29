@@ -1,17 +1,16 @@
 import React from 'react'
-
 import { Card, Button } from 'react-bootstrap'
 
 const Post = (props) => (
-  <div className='p-5'>
+  <div>
     <Card>
-      <Card.Img variant="top" src="bella-donna.jpg" />
+      <Card.Img variant="top" style={{ maxWidth: '300px' }} src={props.image} />
       <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text>
-          {props.text}
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Card.Title dangerouslySetInnerHTML={{ __html: props.title }} />
+        <Card.Text dangerouslySetInnerHTML={{ __html: props.excerpt }} />
+
+
+        <Button variant="primary" href={props.readMore}>Read more...</Button>
       </Card.Body>
     </Card>
   </div>
